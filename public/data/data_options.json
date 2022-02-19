@@ -1,0 +1,70 @@
+{
+  "consultation": {
+    "text": "What therapy or consultation are you looking for?",
+    "options": [
+      "Individual",
+      "Couple therapy",
+      "For children"
+    ]
+  },
+  "gender": {
+    "text": "What is your gender?",
+    "options": [
+      "Female",
+      "Male",
+      "Other"
+    ]
+  },
+  "age": {
+    "text": "How old are you?",
+    "options": [
+      "16–17",
+      "18-59",
+      "60+"
+    ]
+  },
+  "struggling": [
+    "emotional crisis",
+    "family problems",
+    "mood problems",
+    "anxiety difficulties",
+    "difficulties in relationships",
+    "professional difficulties",
+    "addiction",
+    "related to the body",
+    "sex life",
+    "phobia",
+    "social phobia",
+    "mobbing",
+    "abortion",
+    "aggression",
+    "anorexia",
+    "panic attacks",
+    "self-aggression",
+    "bulimia",
+    "affective disease",
+    "bipolar",
+    "depression",
+    "dysthymia",
+    "violence",
+    "schizophrenia"
+  ],
+  "language": [
+    "English",
+    "Polish",
+    "Romanian",
+    "Spanish",
+    "Italian",
+    "Russian",
+    "German",
+    "Arabic,",
+    "Ukrainian",
+    "Portuguese",
+    "Slovakian",
+    "Czech",
+    "Chinese",
+    "Hindi",
+    "French",
+    "Bengali"
+  ]
+}

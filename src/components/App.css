@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+}
+
+:root {
+  --color0: white;
+  --color1: #1d3f65;
+  --color2: lightblue;
+  --color3: #1d3f65;
+
+  --shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  --label-height: 70px;
+}
+
+body {
+  position: relative;
+}
+
+.optionFrameContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 70vw;
+  min-height: 30vw;
+  box-shadow: var(--shadow);
+  padding: 40px;
+  text-align: center;
+}
+
+.optionFrameContainer h3 {
+  font-weight: 600;
+  color: var(--color1);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.formContainer {
+  display: inline-block;
+  width: 80%;
+  padding: 0 10px;
+}
+
+.formContainer label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: var(--label-height);
+  line-height: var(--label-height);
+  font-size: 2rem;
+}
+
+.formContainer input {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  margin: calc(var(--label-height) / 4) 0;
+}
+nav{
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+}
+
+button{
+  font-size: 2rem;
+  font-weight: 100;
+  width: 160px;
+  background-color: var(--color2);
+  border: none;
+  color: var(--color0);
+  padding: 7px 45px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button.back{
+  background-color: var(--color3)
+}
+
+button:hover{
+  font-weight: 600;
+}
