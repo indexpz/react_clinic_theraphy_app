@@ -1,0 +1,29 @@
+nav{
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%,-50%);
+}
+
+.btn{
+
+  font-size: 2rem;
+  font-weight: 100;
+  width: 180px;
+  background-color: var(--color2);
+  border: none;
+  color: var(--color0);
+  padding: 7px 45px;
+  cursor: pointer;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.btn.back{
+  background-color: var(--color3)
+}
+
+.btn:hover{
+  font-weight: 600;
+}

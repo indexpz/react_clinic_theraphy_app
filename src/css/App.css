@@ -27,8 +27,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
-  width: 70vw;
-  min-height: 30vw;
+  width: 50vw;
+  min-height: 10vw;
   box-shadow: var(--shadow);
   padding: 40px;
   text-align: center;
@@ -62,31 +62,4 @@ body {
   width: 30px;
   cursor: pointer;
   margin: calc(var(--label-height) / 4) 0;
-}
-nav{
-  position: absolute;
-  bottom: -30%;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%,-50%);
-}
-
-button{
-  font-size: 2rem;
-  font-weight: 100;
-  width: 160px;
-  background-color: var(--color2);
-  border: none;
-  color: var(--color0);
-  padding: 7px 45px;
-  cursor: pointer;
-  margin: 10px;
-}
-
-button.back{
-  background-color: var(--color3)
-}
-
-button:hover{
-  font-weight: 600;
 }

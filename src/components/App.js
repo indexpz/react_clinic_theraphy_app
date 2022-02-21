@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Link, NavLink, Route, Routes} from 'react-router-dom'
-import './App.css';
+import '../css/App.css';
 
-import OptionFrame from "./OptionFrame";
+import RadioOption from "../layouts/RadioOption";
 
-const OPTIONS_DATA = "/data/data_options.json"
+const OPTIONS_DATA = "./data_options.json"
 
 
 class App extends Component {
@@ -80,18 +80,24 @@ class App extends Component {
                 "Bengali"
             ]
         },
-        consultation: ""
+        consultation: "",
+        gender: "",
+        age: "",
+        struggling: [],
+        language: []
     }
 
+    // fetchData = {dataOptions: {}}
 
     componentDidMount() {
-        setTimeout(this.fetchData, 100)
+        console.log("componentDidMount");
+        setTimeout(this.fetchDataFn, 100)
     }
 
-    fetchData = () => {
+    fetchDataFn = () => {
         fetch(OPTIONS_DATA)
             .then(response => {
-                // console.log(response);
+                console.log(response);
                 if (response.ok) {
                     return response
                 }
@@ -99,12 +105,14 @@ class App extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 // console.log(typeof data);
                 this.setState({dataOptions: data})
+                // this.fetchData({dataOptions: data})
             })
             .catch(err => console.log(err))
     }
+
 
 
     // handleClick = (ev) => {
@@ -114,16 +122,30 @@ class App extends Component {
 
 
     render() {
-
-// console.log(this.state.dataOptions.consultation);
-
+                console.log("render");
+        // console.log(this.fetchData.dataOptions);
+        // console.log(this.fetchData.dataOptions);
+        // console.log(this.state.dataOptions.consultation);
+        // console.log(this.state.consultation, this.state.gender, this.state.age);
         return (
             <Router>
                 <div className="App">
                     <Routes>
-                        <Route path="/" to exact element={<OptionFrame data={this.state.dataOptions.consultation}/>}/>
-                        <Route path="/option-gender" element={<OptionFrame data={this.state.dataOptions.gender}/>}/>
-                        <Route path="/option-age" element={<OptionFrame data={this.state.dataOptions.age}/>}/>
+                        <Route path="/" to exact
+                               element={<RadioOption data={this.state.dataOptions.consultation}
+                                                     dataState={"consultation"}
+                                                     next={"/option-gender"}
+                                                     back={"/"}/>}/>
+                        <Route path="/option-gender"
+                               element={<RadioOption data={this.state.dataOptions.gender}
+                                                     dataState={"gender"}
+                                                     next={"/option-age"}
+                                                     back={"/"}/>}/>
+                        <Route path="/option-age"
+                               element={<RadioOption data={this.state.dataOptions.age}
+                                                     dataState={"age"}
+                                                     next={"/option-age"}
+                                                     back={"/option-gender"}/>}/>/>}/>
                     </Routes>
                 </div>
             </Router>
