@@ -30,15 +30,16 @@
 
 .formContainerChBox ul {
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
+  flex-flow: column;
   flex-wrap: wrap;
-  min-height: 460px;
-  max-height: 660px;
 }
 
 .formContainerChBox li {
   width: 45%;
   list-style: none;
+  align-content: space-between;
+
 
 }
 

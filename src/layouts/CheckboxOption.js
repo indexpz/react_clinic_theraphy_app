@@ -6,6 +6,8 @@ const CheckboxOption = (props) => {
 
     const {text, comment, options} = props.data
     const checkboxArray = options
+
+    const ulHeight = (checkboxArray.length * 55)/2
     // console.log(text);
     // console.log(comment);
     // console.log(checkboxArray);
@@ -27,7 +29,7 @@ const CheckboxOption = (props) => {
                 <h3>{text}</h3>
                 <p>{comment}</p>
                 <div className="formContainerChBox" onChange={props.change}>
-                    <ul>
+                    <ul style={{height: ulHeight}}>
                     {checkboxBtn}
                     </ul>
                 </div>
