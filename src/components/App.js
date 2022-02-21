@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Link, NavLink, Route, Routes} from 'react-router-dom'
+import RadioOption from "../layouts/RadioOption";
+import CheckboxOption from "../layouts/CheckboxOption";
 import '../css/App.css';
 
-import RadioOption from "../layouts/RadioOption";
 
 const OPTIONS_DATA = "./data_options.json"
 
@@ -11,74 +12,82 @@ class App extends Component {
 
     state = {
         dataOptions: {
-            "consultation": {
-                "text": "What therapy or consultation are you looking for?",
-                "options": [
+            consultation: {
+                text: "What therapy or consultation are you looking for?",
+                options: [
                     "Individual",
                     "Couple therapy",
                     "For children"
                 ]
             },
-            "gender": {
-                "text": "What is your gender?",
-                "options": [
+            gender: {
+                text: "What is your gender?",
+                options: [
                     "Female",
                     "Male",
                     "Other"
                 ]
             },
-            "age": {
-                "text": "How old are you?",
-                "options": [
+            age: {
+                text: "How old are you?",
+                options: [
                     "16–17",
                     "18-59",
                     "60+"
                 ]
             },
-            "struggling": [
-                "emotional crisis",
-                "family problems",
-                "mood problems",
-                "anxiety difficulties",
-                "difficulties in relationships",
-                "professional difficulties",
-                "addiction",
-                "related to the body",
-                "sex life",
-                "phobia",
-                "social phobia",
-                "mobbing",
-                "abortion",
-                "aggression",
-                "anorexia",
-                "panic attacks",
-                "self-aggression",
-                "bulimia",
-                "affective disease",
-                "bipolar",
-                "depression",
-                "dysthymia",
-                "violence",
-                "schizophrenia"
-            ],
-            "language": [
-                "English",
-                "Polish",
-                "Romanian",
-                "Spanish",
-                "Italian",
-                "Russian",
-                "German",
-                "Arabic,",
-                "Ukrainian",
-                "Portuguese",
-                "Slovakian",
-                "Czech",
-                "Chinese",
-                "Hindi",
-                "French",
-                "Bengali"
-            ]
+            struggling: {
+                text: "What best describes what you struggling with?",
+                comment: "Choose at list one option",
+                options: [
+                    "emotional crisis",
+                    "family problems",
+                    "mood problems",
+                    "anxiety difficulties",
+                    "difficulties in relationships",
+                    "professional difficulties",
+                    "addiction",
+                    "related to the body",
+                    "sex life",
+                    "phobia",
+                    "social phobia",
+                    "mobbing",
+                    "abortion",
+                    "aggression",
+                    "anorexia",
+                    "panic attacks",
+                    "self-aggression",
+                    "bulimia",
+                    "affective disease",
+                    "bipolar",
+                    "depression",
+                    "dysthymia",
+                    "violence",
+                    "schizophrenia"
+                ]
+            },
+            language: {
+                text: "Language of therapy",
+                comment: "Choose at list one language or more if you need multi-lingual therapist",
+                options: [
+                    "English",
+                    "Polish",
+                    "Romanian",
+                    "Spanish",
+                    "Italian",
+                    "Russian",
+                    "German",
+                    "Arabic",
+                    "Ukrainian",
+                    "Portuguese",
+                    "Slovakian",
+                    "Czech",
+                    "Chinese",
+                    "Hindi",
+                    "French",
+                    "Bengali"
+                ]
+            }
         },
         consultation: "",
         gender: "",
@@ -89,30 +98,29 @@ class App extends Component {
 
     // fetchData = {dataOptions: {}}
 
-    componentDidMount() {
-        console.log("componentDidMount");
-        setTimeout(this.fetchDataFn, 100)
-    }
-
-    fetchDataFn = () => {
-        fetch(OPTIONS_DATA)
-            .then(response => {
-                console.log(response);
-                if (response.ok) {
-                    return response
-                }
-                throw new Error("Błąd" + response.status)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // console.log(typeof data);
-                this.setState({dataOptions: data})
-                // this.fetchData({dataOptions: data})
-            })
-            .catch(err => console.log(err))
-    }
-
+    // componentDidMount() {
+    //     console.log("componentDidMount");
+    //     setTimeout(this.fetchData, 100)
+    // }
+    //
+    // fetchData = () => {
+    //     fetch(OPTIONS_DATA)
+    //         .then(response => {
+    //             console.log(response);
+    //             if (response.ok) {
+    //                 return response
+    //             }
+    //             throw new Error("Błąd" + response.status)
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             // console.log(typeof data);
+    //             this.setState({dataOptions: data})
+    //             // this.fetchData({dataOptions: data})
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
 
     // handleClick = (ev) => {
@@ -121,8 +129,13 @@ class App extends Component {
     // }
 
 
+    handleCheckboxChange=()=>{
+        console.log("checkbox klik");
+
+    }
+
     render() {
-                console.log("render");
+        // console.log("render");
         // console.log(this.fetchData.dataOptions);
         // console.log(this.fetchData.dataOptions);
         // console.log(this.state.dataOptions.consultation);
@@ -144,8 +157,22 @@ class App extends Component {
                         <Route path="/option-age"
                                element={<RadioOption data={this.state.dataOptions.age}
                                                      dataState={"age"}
-                                                     next={"/option-age"}
-                                                     back={"/option-gender"}/>}/>/>}/>
+                                                     next={"/option-struggling"}
+                                                     back={"/option-gender"}/>}/>
+                        <Route path="/option-struggling"
+                               element={<CheckboxOption data={this.state.dataOptions.struggling}
+                                                        change={this.handleCheckboxChange}
+                                                        next={"/options-language"}
+                                                        back={"/option-age"}/>}/>
+                        <Route path="/options-language"
+                               element={<CheckboxOption
+                                   style={{
+
+                                   }}
+                                   data={this.state.dataOptions.language}
+                                                        change={this.handleCheckboxChange}
+                                                        next={"/therapist-list"}
+                                                        back={"/option-struggling"}/>}/>
                     </Routes>
                 </div>
             </Router>

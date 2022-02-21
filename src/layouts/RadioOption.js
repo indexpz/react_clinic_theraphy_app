@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import NavStepsBtn from "./NavStepsBtn";
 import RadioBtn from "./RadioBtn";
+import "../css/RadioOption.css"
 
 const RadioOption = (props) => {
     console.log(props);
@@ -38,7 +39,6 @@ const RadioOption = (props) => {
 
 
     return (
-
         <div className="optionFrameContainer">
             <form>
                 <h3>{props.data.text}</h3>

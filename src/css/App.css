@@ -20,46 +20,9 @@
 
 body {
   position: relative;
+  min-height: 100vh;
 }
 
-.optionFrameContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 50vw;
-  min-height: 10vw;
-  box-shadow: var(--shadow);
-  padding: 40px;
-  text-align: center;
-}
 
-.optionFrameContainer h3 {
-  font-weight: 600;
-  color: var(--color1);
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
 
-.formContainer {
-  display: inline-block;
-  width: 80%;
-  padding: 0 10px;
-}
 
-.formContainer label {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  height: var(--label-height);
-  line-height: var(--label-height);
-  font-size: 2rem;
-}
-
-.formContainer input {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  margin: calc(var(--label-height) / 4) 0;
-}
